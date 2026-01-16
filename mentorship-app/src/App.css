@@ -1,3 +1,110 @@
+.add-week-modal {
+  max-width: 400px;
+  width: 90vw;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem 2rem 1.5rem 2rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.add-week-modal h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+.add-week-card {
+  background: linear-gradient(90deg,#e0e0e0,#f5f5f5);
+  color: #888;
+  border: 2px dashed #bbb;
+  transition: background 0.2s, color 0.2s;
+}
+.add-week-card:hover {
+  background: linear-gradient(90deg,#d1f7c4,#b2f7c7);
+  color: #1ec773;
+  border-color: #1ec773;
+}
+.week-modal {
+  max-width: 900px;
+  width: 90vw;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+}
+.week-modal-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.completion-status {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.status-completed {
+  color: #1ec773;
+  font-weight: bold;
+}
+.week-modal-body {
+  display: grid;
+  grid-template-columns: 1.1fr 1.5fr;
+  gap: 2.5rem;
+  margin-top: 1.2rem;
+}
+.goals-accomplished-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.goals-accomplished-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.goal-accomplished-card {
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #222;
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.week-modal-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.self-rating-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.self-rating-slider-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.self-rating-slider {
+  width: 100%;
+  accent-color: #1ec773;
+  height: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1ec773 0%, #b2f7c7 100%);
+}
+.reflection-summary-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.reflection-summary-box {
+  min-height: 140px;
+  background: linear-gradient(120deg, #f8fafc 60%, #e3eafc 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 0.5rem;
+}
 .main-content-row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
