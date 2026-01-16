@@ -3,6 +3,10 @@ import "./index.css"
 import { useMeetings } from './NextMeeting.tsx'
 import { Routes, Route } from "react-router-dom"
 import { Link } from "react-router-dom"
+import kathryneImg from "./assets/kathryne.jpg";
+import irisImg from "./assets/iris.jpg";
+import auswahImg from "./assets/auswah.jpg";
+
 import MentorshipTracker from "./MentorshipTracker"
 
 function App() {
@@ -58,19 +62,30 @@ function App() {
             <button className="mentorship-add">+</button>
 
             <Link to="/mentorship/Kathryne" className="mentorship-card blue">
-              <span className="badge">3 days</span>
-              <p className="org">RBC WTAP</p>
-              <h3>Kathryne</h3>
-            </Link>
+  <span className="badge">3 days</span>
+
+  <img src={kathryneImg} alt="Kathryne" className="profile-photo" />
+
+  <div className="card-text">
+    <p className="org">RBC WTAP</p>
+    <h3>Kathryne</h3>
+  </div>
+</Link>
+
+
 
             <Link to="/mentorship/Iris" className="mentorship-card orange">
               <span className="badge">7 days</span>
+              <img src={irisImg} alt="Iris" className="profile-photo" />
+
               <p className="org">RBC WTAP</p>
               <h3>Iris</h3>
             </Link>
 
             <Link to="/mentorship/Auswah" className="mentorship-card pink">
               <span className="badge">8 days</span>
+              <img src={auswahImg} alt="Auswah" className="profile-photo" />
+
               <p className="org">RBC WTAP</p>
               <h3>Auswah</h3>
             </Link>

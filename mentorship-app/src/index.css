@@ -108,10 +108,17 @@ h2 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.mentorship-card .org {
+.mentorship-card {
   font-size: 0.75rem;
   opacity: 0.85;
   margin: 0;
+}
+
+.org {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin: 0;
+  
 }
 
 .mentorship-card h3 {

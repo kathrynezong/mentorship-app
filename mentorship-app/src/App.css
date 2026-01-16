@@ -229,7 +229,6 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  border: 4px solid #ffd600;
   padding: 0.5rem 1rem;
   background: #fff;
   display: inline-block;
@@ -541,4 +540,12 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.profile-photo {
+  width: 35px;        /* adjust size */
+  height: 35px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;  /* THIS makes it crop nicely */
 }
