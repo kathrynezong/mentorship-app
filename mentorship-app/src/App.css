@@ -218,20 +218,38 @@
 .week2 { background: linear-gradient(90deg, #ff9966, #ff5e62); }
 .week3 { background: linear-gradient(90deg, #396afc, #2948ff); }
 .week4 { background: linear-gradient(90deg, #a18cd1, #fbc2eb); }
+
 .header-section {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 2rem;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Circles container */
+.profile-circles {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0; /* IMPORTANT: prevents collapse */
+}
+
+/* Circles */
+.profile-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: 2px solid #ccc;
 }
 
 .main-title {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   background: #fff;
-  display: inline-block;
+  display: block;        /* IMPORTANT */
+  margin: 0 0 0.75rem 0; /* THIS fixes the overlap */
 }
 
 .next-meeting-box {

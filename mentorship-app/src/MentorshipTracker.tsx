@@ -76,7 +76,14 @@ export default function MentorshipTracker() {
 
   return (
     <div className="mentorship-tracker">
-      <h1 className="main-title">Mentorship with Kathryne</h1>
+      <div className="header-section">
+        <div className="profile-circles">
+          <div className="profile-circle"></div>
+          <div className="profile-circle"></div>
+        </div>
+
+        <h1 className="main-title">Mentorship with Kathryne</h1>
+      </div>
       <div className="next-meeting-text">Your next meeting is in <span className="meeting-days">3 days</span></div>
 
 
