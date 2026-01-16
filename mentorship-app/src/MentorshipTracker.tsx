@@ -1,6 +1,26 @@
 import { useState } from "react";
 import "./App.css";
 
+const initialGoals = [
+  {
+    title: "Self-Awareness",
+    desc: "Reflect values that shape your professional identity"
+  },
+  {
+    title: "Career Direction",
+    desc: "Define career aspirations"
+  },
+  {
+    title: "Skill Development",
+    desc: "Identify and build the skills to achieve these goals"
+  },
+  {
+    title: "Mentor Support",
+    desc: "Establish how your mentor can best support you"
+  }
+];
+
+
 const initialWeeks = [
   {
     week: "Week 1",
@@ -20,6 +40,11 @@ const initialWeeks = [
 ];
 
 export default function MentorshipTracker() {
+  const [goals, setGoals] = useState(initialGoals);
+  const [showAddGoalModal, setShowAddGoalModal] = useState(false);
+  const [newGoalTitle, setNewGoalTitle] = useState("");
+  const [newGoalDesc, setNewGoalDesc] = useState("");
+
   const [weeks, setWeeks] = useState(initialWeeks);
   const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
@@ -91,25 +116,18 @@ export default function MentorshipTracker() {
         <div className="main-goals-col">
           <div className="section-label">Our Main Goals</div>
           <div className="goals-cards">
-            <div className="goal-card goal1">
-              <div className="goal-number">1</div>
-              <div className="goal-title">Self-Awareness</div>
-              <div className="goal-desc">Reflect values that shape your professional identity</div>
-            </div>
-            <div className="goal-card goal2">
-              <div className="goal-number">2</div>
-              <div className="goal-title">Career Direction</div>
-              <div className="goal-desc">Define career aspirations</div>
-            </div>
-            <div className="goal-card goal3">
-              <div className="goal-number">3</div>
-              <div className="goal-title">Skill Development</div>
-              <div className="goal-desc">Identify and build the skills to achieve these goals</div>
-            </div>
-            <div className="goal-card goal4">
-              <div className="goal-number">4</div>
-              <div className="goal-title">Mentor Support</div>
-              <div className="goal-desc">Establish how your mentor can best support you</div>
+            {goals.map((goal, idx) => (
+              <div className={`goal-card goal${idx + 1}`} key={idx}>
+                <div className="goal-number">{idx + 1}</div>
+                <div className="goal-title">{goal.title}</div>
+                <div className="goal-desc">{goal.desc}</div>
+              </div>
+            ))}
+
+            <div
+              className="goal-card add-goal-card"
+              onClick={() => setShowAddModal(true)} style={{cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'2.5rem',fontWeight:'bold',background:'linear-gradient(90deg,#e0e0e0,#f5f5f5)'}}>
+              +
             </div>
           </div>
         </div>
@@ -167,6 +185,57 @@ export default function MentorshipTracker() {
               </div>
             </div>
             <button onClick={() => setExpandedWeek(null)} style={{ marginTop: "1.5rem" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {showAddGoalModal && (
+        <div className="modal-overlay" onClick={() => setShowAddGoalModal(false)}>
+          <div className="modal-content add-week-modal" onClick={e => e.stopPropagation()}>
+            <h2>Add New Goal</h2>
+
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                if (!newGoalTitle.trim()) return;
+
+                setGoals([
+                  ...goals,
+                  { title: newGoalTitle, desc: newGoalDesc }
+                ]);
+
+                setNewGoalTitle("");
+                setNewGoalDesc("");
+                setShowAddGoalModal(false);
+              }}
+            >
+              <div style={{ marginBottom: "1rem" }}>
+                <label>
+                  Goal Title
+                  <input
+                    type="text"
+                    value={newGoalTitle}
+                    onChange={e => setNewGoalTitle(e.target.value)}
+                    style={{ width: "100%", padding: "0.5rem", marginTop: "0.3rem" }}
+                    required
+                  />
+                </label>
+              </div>
+
+              <div style={{ marginBottom: "1rem" }}>
+                <label>
+                  Description
+                  <textarea
+                    value={newGoalDesc}
+                    onChange={e => setNewGoalDesc(e.target.value)}
+                    rows={3}
+                    style={{ width: "100%", padding: "0.5rem", marginTop: "0.3rem" }}
+                  />
+                </label>
+              </div>
+
+              <button type="submit">Add Goal</button>
+            </form>
           </div>
         </div>
       )}
