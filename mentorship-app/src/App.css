@@ -246,7 +246,7 @@
 .main-title {
   font-size: 2.5rem;
   font-weight: bold;
-  padding: 0.5rem 1rem;
+  padding: 1rem 0rem;
   background: #fff;
   display: block;        /* IMPORTANT */
   margin: 0 0 0.75rem 0; /* THIS fixes the overlap */
