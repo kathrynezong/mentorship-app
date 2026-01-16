@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -31,8 +35,14 @@ body {
 }
 
 h1 {
+  position:absolute;
+  top:10px;
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h3 {
+  padding-top:30px;
 }
 
 button {
@@ -66,3 +76,110 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ---- Sections ---- */
+.mentorship-pages,
+.resource-pages {
+  margin-top: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* ---- Mentorship Cards ---- */
+.mentorship-grid {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.mentorship-card {
+  position: relative;
+  width: 180px;
+  height: 140px;
+  border-radius: 16px;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.mentorship-card .org {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.mentorship-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.25);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+/* Card colors */
+.blue { background: linear-gradient(135deg, #6ea8fe, #3b82f6); }
+.orange { background: linear-gradient(135deg, #fbbf24, #fb923c); }
+.pink { background: linear-gradient(135deg, #f472b6, #ec4899); }
+
+/* Add button */
+.mentorship-add {
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  border: 2px dashed #ddd;
+  background: white;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+}
+
+/* ---- Resources ---- */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.resource-card {
+  position: relative;
+  height: 120px;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #111;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.resource-card.faded {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(255, 255, 255, 0.15)
+  );
+}
+
+.resource-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
