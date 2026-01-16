@@ -25,6 +25,54 @@ export default function MentorshipTracker() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [newWeekTitle, setNewWeekTitle] = useState("");
   const [newWeekDesc, setNewWeekDesc] = useState("");
+  const [selectedRelationship, setSelectedRelationship] = useState(null);
+
+  const relationshipTopics = {
+    0: {
+      title: "Career Growth",
+      subtitle: "Accelerate your career",
+      questions: [
+        "What skills should I focus on developing for my next career step?",
+        "How did you navigate your career transitions?",
+        "What opportunities should I be looking for at this stage?",
+        "How can I position myself for advancement?",
+        "What mistakes should I avoid in my career path?"
+      ]
+    },
+    1: {
+      title: "First laughs",
+      subtitle: "Icebreakers",
+      questions: [
+        "What's the funniest thing that's happened to you at work?",
+        "If you could have any superpower for work, what would it be?",
+        "What's your go-to productivity hack?",
+        "What's a skill you wish you had learned earlier?",
+        "What's your favorite thing about your job?"
+      ]
+    },
+    2: {
+      title: "Future plans & dreams",
+      subtitle: "Dream big together",
+      questions: [
+        "Where do you see yourself in 5-10 years?",
+        "What's a professional goal you're currently working toward?",
+        "What impact do you want to make in your field?",
+        "What's something you've always wanted to try in your career?",
+        "How do you balance ambition with other life priorities?"
+      ]
+    },
+    3: {
+      title: "Future plans & dreams",
+      subtitle: "Dream big together",
+      questions: [
+        "What's your vision for success in this role?",
+        "How do you want to grow personally through this mentorship?",
+        "What legacy do you want to leave in your career?",
+        "What would make this mentorship incredibly valuable for you?",
+        "What are you most excited to learn or explore?"
+      ]
+    }
+  };
 
   return (
     <div className="mentorship-tracker">
@@ -56,11 +104,6 @@ export default function MentorshipTracker() {
               <div className="goal-title">Mentor Support</div>
               <div className="goal-desc">Establish how your mentor can best support you</div>
             </div>
-            <div className="goal-card goal5">
-              <div className="goal-number">5</div>
-              <div className="goal-title">Mentor Support</div>
-              <div className="goal-desc">Establish how your mentor can best support you</div>
-            </div>
           </div>
         </div>
         <div className="weekly-review-col">
@@ -80,10 +123,10 @@ export default function MentorshipTracker() {
           <div className="relationship-section">
             <div className="section-label">Grow Your Relationship</div>
             <div className="relationship-cards-row">
-              <div className="relationship-card rel1">Career Growth<br /><span>Accelerate your career</span></div>
-              <div className="relationship-card rel2">First laughs<br /><span>Icebreakers</span></div>
-              <div className="relationship-card rel3">Future plans & dreams<br /><span>Dream big together</span></div>
-              <div className="relationship-card rel3">Future plans & dreams<br /><span>Dream big together</span></div>
+              <div className="relationship-card rel1" onClick={() => setSelectedRelationship(0)} style={{cursor:'pointer'}}>Career Growth<br /><span>Accelerate your career</span></div>
+              <div className="relationship-card rel2" onClick={() => setSelectedRelationship(1)} style={{cursor:'pointer'}}>First laughs<br /><span>Icebreakers</span></div>
+              <div className="relationship-card rel3" onClick={() => setSelectedRelationship(2)} style={{cursor:'pointer'}}>Future plans & dreams<br /><span>Dream big together</span></div>
+              <div className="relationship-card rel3" onClick={() => setSelectedRelationship(3)} style={{cursor:'pointer'}}>Future plans & dreams<br /><span>Dream big together</span></div>
             </div>
           </div>
         </div>
@@ -150,6 +193,24 @@ export default function MentorshipTracker() {
               <button type="submit" style={{marginRight:'1rem'}}>Add Week</button>
               <button type="button" onClick={() => setShowAddModal(false)}>Cancel</button>
             </form>
+          </div>
+        </div>
+      )}
+
+      {selectedRelationship !== null && (
+        <div className="modal-overlay" onClick={() => setSelectedRelationship(null)}>
+          <div className="modal-content relationship-modal" onClick={e => e.stopPropagation()}>
+            <h2>{relationshipTopics[selectedRelationship].title}</h2>
+            <p style={{color:'#666',marginBottom:'1.5rem'}}>{relationshipTopics[selectedRelationship].subtitle}</p>
+            <div style={{marginBottom:'1rem',fontWeight:'bold',fontSize:'1.1rem'}}>Questions you can ask your mentor:</div>
+            <ul style={{listStyle:'none',padding:0}}>
+              {relationshipTopics[selectedRelationship].questions.map((q, idx) => (
+                <li key={idx} style={{padding:'0.75rem',marginBottom:'0.5rem',background:'#f5f5f5',borderRadius:'8px',borderLeft:'4px solid #4a90e2'}}>
+                  {q}
+                </li>
+              ))}
+            </ul>
+            <button onClick={() => setSelectedRelationship(null)} style={{marginTop:'1rem'}}>Close</button>
           </div>
         </div>
       )}
