@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 const initialWeeks = [
@@ -21,7 +21,7 @@ const initialWeeks = [
 
 export default function MentorshipTracker() {
   const [weeks, setWeeks] = useState(initialWeeks);
-  const [expandedWeek, setExpandedWeek] = useState(null);
+  const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newWeekTitle, setNewWeekTitle] = useState("");
   const [newWeekDesc, setNewWeekDesc] = useState("");

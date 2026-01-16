@@ -108,6 +108,11 @@ h2 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+.mentorship-card p {
+  position: absolute;
+  bottom: 40px;
+}
+
 .mentorship-card .org {
   font-size: 0.75rem;
   opacity: 0.85;
@@ -117,6 +122,39 @@ h2 {
 .mentorship-card h3 {
   margin: 0;
   font-size: 1.1rem;
+}
+
+/* Profile picture overlay */
+.pfp-overlay {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfp {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.pfp-1 {
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.pfp-2 {
+  bottom: 5px;
+  right: 5px;
+  z-index: 1;
 }
 
 .badge {
@@ -155,7 +193,7 @@ h2 {
 
 .resource-card {
   position: relative;
-  height: 120px;
+  height: 140px;
   padding: 1rem;
   border-radius: 16px;
   background: #111;
