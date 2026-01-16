@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import MentorshipTracker from "./MentorshipTracker";
+import "./App.css";
 import { useMeetings } from './NextMeeting.tsx'
 
 function App() {
+  return <MentorshipTracker />;
   const { meetings } = useMeetings()
   const now = new Date()
 
