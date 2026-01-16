@@ -1,11 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { MeetingsProvider } from './NextMeeting.tsx'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
+import App from "./App"
+import { MeetingsProvider } from "./NextMeeting"
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <MeetingsProvider><App /></MeetingsProvider>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <MeetingsProvider>
+        <App />
+      </MeetingsProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 )

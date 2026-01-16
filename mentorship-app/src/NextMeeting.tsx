@@ -18,7 +18,11 @@ export function MeetingsProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [meetings, setMeetings] = useState<Meeting[]>([])
+  const [meetings, setMeetings] = useState<Meeting[]>([
+    { id: "1", date: "2026-01-19", with: "Kathryne" },
+    { id: "2", date: "2026-01-23", with: "Iris" },
+    { id: "3", date: "2026-01-24", with: "Auswah" },
+  ])
 
   return (
     <MeetingsContext.Provider value={{ meetings, setMeetings }}>
